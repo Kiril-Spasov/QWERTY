@@ -20,7 +20,7 @@ namespace QWERTY
 
             line = streamReader.ReadLine();
 
-            TxtResult.Text = CorrectCaseSensitivity(Translate(line));
+            TxtResult.Text = Translate(line);
 
         }
 
@@ -53,34 +53,6 @@ namespace QWERTY
                     }
                 }
             }
-            return result;
-        }
-
-        private string CorrectCaseSensitivity(string text)
-        {
-            string letter;
-            string result = "";
-
-            for (int i = 0; i < text.Length; i++)
-            {
-                
-                letter = text.Substring(i, 1);
-
-                if (i == 0)
-                {
-                    result += letter.ToUpper();
-                }
-                else if (letter == " ")
-                {
-                    result += " " + text.Substring(i + 1, 1).ToUpper();
-                    i++;
-                }
-                else
-                {
-                    result += letter.ToLower();
-                }
-            }
-
             return result;
         }
     }
